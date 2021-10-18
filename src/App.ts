@@ -15,6 +15,7 @@ class App {
   public async startServer(): Promise<void> {
     try {
       this.initializeFrontend();
+      this.helloWorld();
       await this.listen();
     } catch (error) {
       console.error(`Error initializing server: ${error}`);
@@ -51,6 +52,17 @@ class App {
       this.server.close();
     } catch (error) {
       console.error(`Error shutting down server: ${error}`);
+    }
+  }
+
+  private helloWorld(): void {
+    try{
+      this.app.get("/hello", (req: express.Request,res: express.Response,next:express.NextFunction) => {
+        res.send("hello world");
+      })
+    }
+    catch(err){
+      console.error(err);
     }
   }
 }
