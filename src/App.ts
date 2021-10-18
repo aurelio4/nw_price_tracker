@@ -15,7 +15,9 @@ class App {
   public async startServer(): Promise<void> {
     try {
       this.initializeFrontend();
+      this.initializeRoutes();
       this.helloWorld();
+      
       await this.listen();
     } catch (error) {
       console.error(`Error initializing server: ${error}`);
@@ -61,6 +63,15 @@ class App {
         res.send("hello world");
       })
     }
+    catch(err){
+      console.error(err);
+    }
+  }
+  private initializeRoutes(): void {
+    try{
+      this.app.use("/user", require("./routes/user"))
+      }
+    
     catch(err){
       console.error(err);
     }
