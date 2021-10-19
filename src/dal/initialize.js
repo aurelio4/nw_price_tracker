@@ -8,15 +8,20 @@ async function initializeTables() {
         // add more initial tables here
         await db.query(sql.tables.users)
     } catch (err) {
-        console.error(err)
+        console.error(err + ': this is the error')
     }
 }
 
 async function initializeDatabase() {
     // initializes tables
-    await initializeTables()
-    console.log('**Tables created! **')
+    try {
+        await initializeTables()
+        console.log('**Tables created! **')
+    } catch (err) {
+        console.error(err)
+    }
 }
+    
 
 module.exports = {
     initializeDatabase,
