@@ -3,8 +3,8 @@ const sqlLoader = require('sql-loader')
 
 const sql = sqlLoader('../sql')
 
-async function createUser({ username, email, password }) {
-    const { rows } = await db.query(sql.users.create_user, [ username, email, password ])
+async function createUser({  email, password,username, formattedDate }) {
+    const { rows } = await db.query(sql.users.create_user, [ email, password,username, formattedDate ])
     return rows 
 }
 
