@@ -1,5 +1,10 @@
 const router = require('express').Router()
 const bcrypt = require('bcrypt')
+const {createUser} = require('../dal/users');
+const pool = require('../data/Pool');
+const date = new Date();
+const jwt = require('jsonwebtoken');
+require("dotenv").config();
 
 router.get('/', async (req, res) => {
     try {
@@ -12,8 +17,31 @@ router.get('/', async (req, res) => {
 
 router.post('/create', async (req, res) => {
     try {
-        console.log(req.body)
-        res.status(201).json({ success: 'created' })
+    
+        const { username, password:pass, email} = req.body;
+        const salt = await bcrypt.genSalt(10);
+        var password = await bcrypt.hash(pass, salt);
+        
+        const formattedDate =` ${date.getFullYear()}-${
+          date.getMonth() + 1
+        }-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}.${date.getMilliseconds()}`;
+        await createUser({email,password,username, formattedDate });
+
+        const payload = {
+          user: {
+              email: email,
+              
+          },
+      };
+
+
+      jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: 360000 }, (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+      });
+
+
+        
     } catch(err) {
         console.error(err)
         res.status(500).json({ error: 'server error' })
