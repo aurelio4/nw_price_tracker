@@ -7,6 +7,7 @@ import {
   } from '@ant-design/icons';
 
 const Sider = (): JSX.Element => {
+    // at less than 1025px (width), sider should be full width
     const [collapsed, setCollapsed] = useState<boolean>(false)
     const [active, setActive] = useState<string>('1')
     const { Sider } = Layout

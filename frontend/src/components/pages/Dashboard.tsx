@@ -1,5 +1,5 @@
 import React from 'react'
-// import Graph from '../common/Graph'
+import Graph from '../common/Graph'
 import Sider from '../common/Sider'
 
 import { Layout } from 'antd';
@@ -12,9 +12,7 @@ const Dashboard = (): JSX.Element => {
             <Sider />
             <Layout className="site-layout">
                 <Content style={{ margin: '0 16px' }}>
-                    <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-                    Bill is a cat.
-                    </div>
+                    <Graph />
                 </Content>
             </Layout>
         </Layout>
