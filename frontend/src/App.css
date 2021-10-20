@@ -5,6 +5,14 @@
     --primary-light: #e7eefd;
 }
 
+.ant-menu-inline .ant-menu-item {
+    margin-top: 0;
+}
+
+.ant-menu-vertical .ant-menu-item {
+    margin-top: 0;
+}
+
 .landing-page {
     width: 100vw;
     margin-top: 40vh;
