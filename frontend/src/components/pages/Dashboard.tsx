@@ -1,5 +1,5 @@
 import React from 'react'
-import Graph from '../common/Graph'
+import GraphCard from '../common/GraphCard'
 import Sider from '../common/Sider'
 
 import { Layout } from 'antd';
@@ -11,8 +11,17 @@ const Dashboard = (): JSX.Element => {
         <Layout style={{ minHeight: '100vh' }}>
             <Sider />
             <Layout className="site-layout">
-                <Content style={{ margin: '0 16px' }}>
-                    <Graph />
+                <Content style={{ margin: '0', backgroundColor: '#232220' }}>
+                    <div className="graph-table">
+                        <GraphCard />
+                        <GraphCard />
+                        <GraphCard />
+                        <GraphCard />
+                        <GraphCard />
+                        <GraphCard />
+                        <GraphCard />
+                        <GraphCard />
+                    </div>
                 </Content>
             </Layout>
         </Layout>

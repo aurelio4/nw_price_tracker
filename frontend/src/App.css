@@ -3,6 +3,8 @@
 
 :root {
     --primary-light: #e7eefd;
+    --sider-background: #31302E;
+    --sider-selected: #454543;
 }
 
 .ant-menu-inline .ant-menu-item {
@@ -11,6 +13,64 @@
 
 .ant-menu-vertical .ant-menu-item {
     margin-top: 0;
+}
+
+.ant-card-bordered {
+    border: 1px solid rgba(49, 48, 46, 1)
+}
+
+.ant-card-meta-title {
+    color: white;
+}
+
+/* sider selected option color */
+
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: var(--sider-selected);
+}
+
+/* sider background color */
+
+.ant-layout-sider {
+    background-color: var(--sider-background);
+}
+
+.ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub {
+    background-color: var(--sider-background);
+}
+
+/* sider open/close trigger button color */
+
+.ant-layout-sider-trigger {
+    background-color: var(--sider-selected);
+}
+
+/* app styles */
+
+.custom-tooltip {
+    background-color: white;
+    padding: 2px 5px;
+}
+
+.custom-tooltip .item-name {
+    padding: 0;
+    margin: 0;
+}
+
+.custom-tooltip .item-price {
+    padding: 0;
+    margin: 0;
+}
+
+.graph-table {
+    margin: 7vh 0 4vh 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.graph-card-container {
+    margin-bottom: 3vh;
 }
 
 .landing-page {
@@ -34,9 +94,4 @@
 
 .App {
     display: flex;
-}
-
-.price-graph {
-    padding-left: 2vw;
-    margin-top: 6vh;
 }
