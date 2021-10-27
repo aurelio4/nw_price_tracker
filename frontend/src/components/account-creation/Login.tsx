@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, Spin, Alert } from 'antd';
+import { Redirect } from 'react-router-dom'
 import ApiClient from '../../utils/ApiClient';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 const Login = (props: any): JSX.Element => {
 	const [loading, isLoading] = useState<boolean>(false);
 	const [error, setError] = useState<boolean>(false);
+	const [redirect, setRedirect] = useState<boolean>(false);
 
 	const [username, setUsername] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
@@ -13,9 +18,10 @@ const Login = (props: any): JSX.Element => {
 		try {
 			setError(false);
 			isLoading(true);
-			const { data } = await ApiClient.loginUser(username, password);
+			const data = await ApiClient.loginUser(username, password);
+			props.setToken(cookies.get('auth_token') ? true : false);
 			isLoading(false);
-			console.log(data);
+			setRedirect(true);
 		} catch (err: any) {
 			console.error(err);
 			isLoading(false);
@@ -24,7 +30,8 @@ const Login = (props: any): JSX.Element => {
 	};
 
 	return (
-		<div className="login-container">
+		redirect ? <Redirect to="/dashboard" />
+		: <div className="login-container">
 			<Form name="basic" onFinish={handleFinish}>
 				<Form.Item
 					name="username"
@@ -84,7 +91,7 @@ const Login = (props: any): JSX.Element => {
 						justifyContent: 'space-between',
 					}}
 				>
-					<Button type="primary" htmlType="submit" disabled={!captchaVerified}>
+					<Button type="primary" htmlType="submit">
 						{loading ? <Spin size="default" /> : 'Submit'}
 					</Button>
 				</div>

@@ -33,7 +33,7 @@ const App = () => {
 						<Register setToken={setToken} />
 					</Route>
 					<Route path="/login" exact>
-						<Login />
+						<Login setToken={setToken} />
 					</Route>
 					<Redirect to="/" />
 				</Switch>

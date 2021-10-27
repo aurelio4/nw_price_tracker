@@ -3,12 +3,17 @@ import { Form, Input, Button, Spin, Alert } from 'antd';
 import ReCAPTCHA from 'react-google-recaptcha';
 import emailValidator from 'email-validator';
 import ApiClient from '../../utils/ApiClient';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 const Register = (props: any): JSX.Element => {
 	const [captchaVerified, setCaptchaVerified] = useState<boolean>(false);
 	const [loading, isLoading] = useState<boolean>(false);
 	const [error, setError] = useState<boolean>(false);
+	const [errorMessage, setErrorMessage] = useState<string>('Something went wrong, please try again later.')
+	const [redirect, setRedirect] = useState<boolean>(false)
 
 	const [username, setUsername] = useState<string>('');
 	const [email, setEmail] = useState<string>('');
@@ -36,18 +41,20 @@ const Register = (props: any): JSX.Element => {
 		try {
 			setError(false);
 			isLoading(true);
-			const { data } = await ApiClient.createUser(username, email, password);
+			await ApiClient.createUser(username, email, password);
+			props.setToken(cookies.get("auth_token") ? true : false)
 			isLoading(false);
-			console.log(data);
+			setRedirect(true);
 		} catch (err: any) {
-			console.error(err);
 			isLoading(false);
 			setError(true);
+			setErrorMessage(err.response.data.error)
 		}
 	};
 
 	return (
-		<div className="register-container">
+		redirect ? <Redirect to="/dashboard" /> 
+		: <div className="register-container">
 			<Form name="basic" onFinish={handleFinish}>
 				<Form.Item
 					name="username"
@@ -177,10 +184,10 @@ const Register = (props: any): JSX.Element => {
 					</p>
 				</div>
 
-				<div className="ma3">
+				<div className="alert-container">
 					{error ? (
 						<Alert
-							message="Something went wrong. Please try again later."
+							message={errorMessage}
 							type="error"
 							showIcon
 							closable
@@ -188,6 +195,7 @@ const Register = (props: any): JSX.Element => {
 					) : null}
 				</div>
 			</Form>
+			{ redirect ?? <Redirect to="/dashboard" /> }
 		</div>
 	);
 };

@@ -49,6 +49,10 @@
 
 /* app styles */
 
+.alert-container {
+	margin-top: 5vh;
+}
+
 /* App.tsx */
 
 .App {
@@ -109,7 +113,18 @@
 }
 
 /* Register.tsx */
+
 .register-container {
+	width: 100vw;
+	justify-content: center;
+	margin-top: 5vh;
+	display: flex;
+	flex-direction: row;
+}
+
+/* Login.tsx */
+
+.login-container {
 	width: 100vw;
 	justify-content: center;
 	margin-top: 5vh;
