@@ -105,3 +105,12 @@
 .graph-card-container {
     margin-bottom: 3vh;
 }
+
+/* Register.tsx */
+.register-container {
+	width: 100vw;
+	justify-content: center;
+	margin-top: 5vh;
+	display: flex;
+	flex-direction: row;
+}

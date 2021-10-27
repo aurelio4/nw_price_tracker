@@ -1,12 +1,12 @@
-import { useState, useEffect} from 'react'
+// import { useState, useEffect} from 'react' 
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts'
 import { Card } from 'antd'
 import { CustomTooltip } from '../common/CustomTooltip'
 
-interface Size {
-    width: number;
-    height: number;
-}
+// interface Size {
+//     width: number;
+//     height: number;
+// }
 
 interface PropType {
 	itemName: string;
@@ -16,22 +16,22 @@ interface PropType {
 const { Meta } = Card;
 
 const GraphCard = ({ itemName, data }: PropType): JSX.Element => {
-	// TODO: use this for styling for mobile
-	const [size, setSize] = useState<Size>({ width: window.innerWidth, height: window.innerHeight });
+	// TODO: use this for styling for mobile?
+	// const [size, setSize] = useState<Size>({ width: window.innerWidth, height: window.innerHeight });
 
-	const resizeHandler = (): void => {
-		const width = window.innerWidth
-		const height = window.innerHeight
+	// const resizeHandler = (): void => {
+	// 	const width = window.innerWidth
+	// 	const height = window.innerHeight
 	
-		setSize({
-		width,
-		height
-		})
-	}
+	// 	setSize({
+	// 	width,
+	// 	height
+	// 	})
+	// }
 
-	useEffect(() => {
-		window.onresize = resizeHandler
-	})
+	// useEffect(() => {
+	// 	window.onresize = resizeHandler
+	// })
 
     return (
         <div className="graph-card-container">
