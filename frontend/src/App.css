@@ -2,47 +2,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 :root {
-    --primary-light: #e7eefd;
-    --sider-background: #31302E;
-    --sider-selected: #454543;
+	--primary-light: #e7eefd;
+	--sider-background: #31302e;
+	--sider-selected: #454543;
 }
 
 .ant-menu-inline .ant-menu-item {
-    margin-top: 0;
+	margin-top: 0;
 }
 
 .ant-menu-vertical .ant-menu-item {
-    margin-top: 0;
+	margin-top: 0;
 }
 
 .ant-card-bordered {
-    border: 1px solid rgba(49, 48, 46, 1)
+	border: 1px solid rgba(49, 48, 46, 1);
 }
 
 .ant-card-meta-title {
-    color: white;
+	color: white;
 }
 
 /* sider selected option color */
 
 .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
-    background-color: var(--sider-selected);
+	background-color: var(--sider-selected);
 }
 
 /* sider background color */
 
 .ant-layout-sider {
-    background-color: var(--sider-background);
+	background-color: var(--sider-background);
 }
 
-.ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub {
-    background-color: var(--sider-background);
+.ant-menu.ant-menu-dark,
+.ant-menu-dark .ant-menu-sub,
+.ant-menu.ant-menu-dark .ant-menu-sub {
+	background-color: var(--sider-background);
 }
 
 /* sider open/close trigger button color */
 
 .ant-layout-sider-trigger {
-    background-color: var(--sider-selected);
+	background-color: var(--sider-selected);
 }
 
 /* app styles */
@@ -50,60 +52,60 @@
 /* App.tsx */
 
 .App {
-    display: flex;
+	display: flex;
 }
 
 /* LandingPage.tsx */
 
 .landing-page {
-    width: 100vw;
-    margin-top: 40vh;
-    text-align: center;
-    color: var(--primary-light);
+	width: 100vw;
+	margin-top: 40vh;
+	text-align: center;
+	color: var(--primary-light);
 }
 
 .landing-page h1 {
-    color: var(--primary-light);
+	color: var(--primary-light);
 }
 
 .landing-page-buttons {
-    width: 12vw;
-    margin-left: 45vw;  
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+	width: 12vw;
+	margin-left: 45vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 /* CustomTooltip.tsx */
 
 .custom-tooltip {
-    background-color: white;
-    padding: 2px 5px;
+	background-color: white;
+	padding: 2px 5px;
 }
 
 .custom-tooltip .item-name {
-    padding: 0;
-    margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 .custom-tooltip .item-price {
-    padding: 0;
-    margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 /* Graph.tsx */
 
 .graph-table {
-    margin: 7vh 0 4vh 0;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+	margin: 7vh 0 4vh 0;
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
 }
 
 /* GraphCard.tsx */
 
 .graph-card-container {
-    margin-bottom: 3vh;
+	margin-bottom: 3vh;
 }
 
 /* Register.tsx */

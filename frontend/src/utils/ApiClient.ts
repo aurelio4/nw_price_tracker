@@ -19,8 +19,8 @@ class ApiClient {
   }
 	
 	async loginUser(username: string, password: string) {
-		return await this.client.post('/users/login', { username, password })
+		return await this.client.post('/users/login', { username, password });
 	}
 }
 
-export default new ApiClient();
+export default new ApiClient()
